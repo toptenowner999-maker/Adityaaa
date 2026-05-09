@@ -15,14 +15,14 @@ sys.stdout.reconfigure(line_buffering=True)
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 APK_URL = os.environ.get("APK_URL")
 
-USERS_FILE = "users.json
+# --- FIXED: Added missing closing quote ---
+USERS_FILE = "users.json" 
 DM_LINK = "https://yaarwin.org/#/register?invitationCode=67827139232"
 VIP_BUTTON = InlineKeyboardMarkup([
     [InlineKeyboardButton("REGISTER LINK ❤️✨", url=DM_LINK)]
 ])
 
 APK_CACHE = None
-
 
 def load_users():
     try:
@@ -33,14 +33,12 @@ def load_users():
         pass
     return []
 
-
 def save_users(users):
     try:
         with open(USERS_FILE, "w") as f:
             json.dump(users, f, indent=2)
     except IOError as e:
         print(f"Error saving users: {e}")
-
 
 def add_user(user, users):
     if not any(u["id"] == user.id for u in users):
@@ -52,7 +50,6 @@ def add_user(user, users):
         })
         save_users(users)
     return users
-
 
 def fetch_apk_at_startup():
     global APK_CACHE
@@ -68,7 +65,6 @@ def fetch_apk_at_startup():
     except Exception as e:
         print(f"Failed to download APK: {e}")
         APK_CACHE = None
-
 
 async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.chat_join_request.from_user
@@ -90,11 +86,11 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
             if APK_CACHE:
                 apk_file = BytesIO(APK_CACHE)
-                apk_file.name = "JAIWIN PREMIUM.APK"
+                apk_file.name = "JAIWIN_PREMIUM.APK"
                 await context.bot.send_document(
                     chat_id=user.id,
                     document=apk_file,
-                    filename="JAIWIN PREMIUM.APK",
+                    filename="JAIWIN_PREMIUM.APK",
                     caption=(
                         "✅ 100% NUMBER HACK 💥\n\n"
                         "( ONLY FOR PREMIUM USERS ⚡️ )\n"
@@ -121,7 +117,6 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
             print(f"Error for {user.id}: {e}")
             break
 
-
 def main():
     if not BOT_TOKEN:
         print("ERROR: BOT_TOKEN not set")
@@ -142,14 +137,13 @@ def main():
         allowed_updates=["chat_join_request"]
     )
 
-
 if __name__ == "__main__":
-    main()
+    # --- FIXED: Removed extra main() and improved loop ---
     while True:
         try:
             main()
         except KeyboardInterrupt:
-            print("Bot stopped.")
+            print("Bot stopped by user.")
             break
         except Exception as e:
             print(f"[{datetime.now()}] Crashed: {e}")
