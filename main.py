@@ -15,9 +15,8 @@ sys.stdout.reconfigure(line_buffering=True)
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 APK_URL = os.environ.get("APK_URL")
 
-USERS_FILE = "users.json"
-
-DM_LINK = "https://www.jaiclub31.com/#/register?invitationCode=56175405050"
+USERS_FILE = "users.json
+DM_LINK = "https://yaarwin.org/#/register?invitationCode=67827139232"
 VIP_BUTTON = InlineKeyboardMarkup([
     [InlineKeyboardButton("REGISTER LINK ❤️✨", url=DM_LINK)]
 ])
@@ -85,7 +84,7 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
             await context.bot.send_message(
                 chat_id=user.id,
-                text="🚀🔥 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗝𝗔𝗜 𝗖𝗟𝗨𝗕 💎 𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗕𝗢𝗧 🔥",
+                text="🚀🔥 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗬𝗔𝗔𝗥𝗪𝗜𝗡 💎 𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗕𝗢𝗧 🔥",
                 reply_markup=VIP_BUTTON
             )
 
@@ -100,7 +99,7 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
                         "✅ 100% NUMBER HACK 💥\n\n"
                         "( ONLY FOR PREMIUM USERS ⚡️ )\n"
                         "( 100% LOSS RECOVER GUARANTEE ⚡️ )\n\n"
-                        "REGISTER LINK - https://www.jaiclub31.com/#/register?invitationCode=56175405050\n"
+                        "REGISTER LINK - https://yaarwin.org/#/register?invitationCode=67827139232\n"
                         "FOR HELP @ADDI_XO"
                     ),
                     reply_markup=VIP_BUTTON
